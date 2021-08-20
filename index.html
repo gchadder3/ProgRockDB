@@ -1,0 +1,75 @@
+<!-- 
+index.html
+
+Portal page for Prog Rock Database Project.
+
+George Chadderdon, 8/19/2021
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<title>Prog Rock Database Project</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		body {background: #99CCFF;}  <!-- azure background -->
+	</style>
+</head>
+
+<body>
+	<h1>Prog Rock Database Project</h1>
+	
+	<p>
+		Welcome to my (George Chadderdon's) Prog Rock Database Project.  This was my first 
+        effort (in 2010) to develop a database web application.  It 
+		is a searchable database of progressive rock music with links to 
+		information about the bands and their albums.  The phenomenon 
+		of prog rock rock began in the mid-60s in the United Kingdom, probably 
+		inspired largely by the experimentations of the Beatles.  One of the 
+		earliest prog rock albums was The Moody Blues' <i>Days of Future Passed</i>, 
+		a concept album with orchestral interludes between the folk/world 
+		music-flavored rock pieces.  The prog rock movement largely died in the mid-70s, 
+		but had a brief resurgence in the 80s.  Most, though not all, of these groups 
+		are or were British.  Typical prog rock groups: King Crimson, Yes, Genesis, 
+		ELP (Emerson, Lake, and Palmer), Van Der Graaf Generator.
+	</p>
+	
+	<h2><a href="prdb_disp2.php">CLICK HERE TO VIEW THE DATABASE</a></h2>	
+	
+	<p>Current features:</p>
+	
+	<ul>
+		<li>MySQL prog rock database set up on my local host via an Apache server.</li>
+		<li>ProgRockAlbums table added and populated with a few albums.</li>  
+		<li>PHP page written for displaying the table.
+		Click <a href="prdb_disp1.php">here</a> to view the full table 
+		(in an un-prettied format).</li>
+		<li>PHP web form created allowing entry of new albums.  The form has 
+		input validation requiring certain fields be have entries and the 
+		release date be no earlier than 1965.  
+		Click <a href="prdb_addnewalbumform.php">here</a> to access this and enter 
+        a new album.</li>
+	</ul>
+	
+	<p>Possible future features:</p>
+	
+	<ul>
+		<li>Creation of admin login providing password access to the adding
+		of new album entries.</li>
+		<li>Creation of an album add request mechanism which writes requests 
+		to an XML file.</li>
+		<li>Admin option for browsing the XML requests and adding them to 
+		the album database.</li>
+		<li>Tables for Artists and Songs.</li>
+		<li>Addition of songs to the album entries.</li>
+	</ul>
+		
+	<p>
+		Last Updated: 8/19/2021
+	</p>
+</body>
+
+</html>
