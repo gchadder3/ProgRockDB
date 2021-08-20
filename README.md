@@ -13,12 +13,17 @@ Directions to install (assuming you have an Apache server set up on a local mach
 
 * You'll need to have Apache, PHP, and MySQL properly installed on your local machine and 
 be able to add new databases to MySQL.
-* Move into the directory (`htdocs` for example) visible to your browser, and clone the repo: 
+* Move into the directory (`C:\Apache24\htdocs`, for example, on my machine) which is 
+visible to your browser when you are running your web server, and clone the repo: 
 `git clone https://github.com/gchadder3/ProgRockDB.git` .
-* Install the initial database by sourcing `prog_rock_db.sql` into your MySQL server.  This 
+* Install the initial database by sourcing `prog_rock_db.sql` into your MySQL server.  
+(For me, this consists of logging into MySQL via the MySQL Command Line Client in Windows 
+and running `source C:/Apache24/htdocs/ProgRockDB/prog_rock_db.sql` in the shell.)  This 
 will create a new database called `prog_rock_db`.
 * Edit the database connection parameters on Lines 14-16 of `prdb_funcs.php` to match 
 where you put the database in MySQL.  Now you should be ready to use the database.
+* Make sure your (e.g. Apache) web server is up and running.  (For example on my setup, 
+I navigate to `C:\Apache24\bin` in a command shell and run `httpd`.)
 * Navigate in your browser to the portal site at `localhost/ProgRockDB/`.
 * The portal page should appear, and you should be able to use the database, viewing it
 and adding new albums.
