@@ -3,48 +3,51 @@ prdb_funcs.php
 
 PHP functions used by the Prog Rock Database Project. 
 
-George Chadderdon, 8/19/2021
+George Chadderdon, 8/20/2021
 -->
 
 <?php 
     // Open the Prog Rock database, and return the connection.
     function prdb_open_db()
     {
+        // MySQL database connection parameters
+        $hostname   = "localhost";     // name of host MySQL is set up on (possibly "localhost")
+        $dbuser     = "root";          // user name to use for the connection (possibly "root")
+        $dbpassword = "asdfjU85!b08bxeltlP";  // password to use with the connection user
+        $dbname     = "prog_rock_db";  // actual name of the Prog Rock database
+        
         // Try to connect with the MYSQL database.
-        $con = mysqli_connect("localhost",              // host name
-                              "root",                   // user name
-                              "asdfjU85!b08bxeltlP",    // password
-                              "prog_rock_db");          // database (Prog Rock)
+        $conn = mysqli_connect($hostname, $dbuser, $dbpassword, $dbname);
                               
         // Crash out with an error message if we fail.
-        if (!$con)
+        if (!$conn)
         {
-            die('Could not connect: ' . mysqli_error($con));
+            die('Could not connect: ' . mysqli_error($conn));
         }
         
-        return $con;        
+        return $conn;        
     }
     
     // Submit query to the Prog Rock database, and return the result.
-    function prdb_submit_sql_query($con, $sql)
+    function prdb_submit_sql_query($conn, $sql)
     {
         // Query the entire table.
-        $result = mysqli_query($con, $sql);
+        $result = mysqli_query($conn, $sql);
         
         // Crash out if we have an error.
         if (!$result)
         {
-            die('SQL ERROR: ' . mysqli_error($con));
+            die('SQL ERROR: ' . mysqli_error($conn));
         }
         
         return $result;
     }
     
     // Close the Prog Rock database.
-    function prdb_close_db($con)
+    function prdb_close_db($conn)
     {
         // Close the database.
-        mysqli_close($con);
+        mysqli_close($conn);
     }
     
     // Display the entirety of the album data.

@@ -4,7 +4,7 @@ prdb_disp1.php
 Page displaying the entirety of the albums table for Prog Rock Database 
 Project.  The order of presentation is in order of Album_ID. 
 
-George Chadderdon, 8/19/2021
+George Chadderdon, 8/20/2021
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -30,7 +30,7 @@ George Chadderdon, 8/19/2021
     require("prdb_funcs.php");
     
     // Open the database.
-    $con = prdb_open_db();
+    $conn = prdb_open_db();
     
     // Set up and submit a query.
 //  $sql = "SELECT * FROM ProgRockAlbums";
@@ -38,19 +38,19 @@ George Chadderdon, 8/19/2021
 //     $sql = "INSERT INTO ProgRockAlbums (Artist,Album,ReleaseDate,AlbumInfoURL) 
 //         VALUES ('Jethro Tull','Aqualung','1971',
 //      'http://en.wikipedia.org/wiki/Aqualung_(Jethro_Tull_album)')";
-//    $result = prdb_submit_sql_query($sql);
+//    $result = prdb_submit_sql_query($conn, $sql);
 
     // Read out the whole database.
-    $alb_data = prdb_submit_sql_query($con, "SELECT * FROM ProgRockAlbums");
+    $alb_data = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums");
     
     // Show the database in a table.
     prdb_full_disp_album_data($alb_data);
     
     // Close the database.
-    prdb_close_db($con);
+    prdb_close_db($conn);
 ?>
 
-   <p>Last Updated: 8/19/2021</p>
+   <p>Last Updated: 8/20/2021</p>
 
 </body>
 

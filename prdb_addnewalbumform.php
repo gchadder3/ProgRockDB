@@ -6,7 +6,7 @@ Database. The form does validation checking, requiring that the
 arist, album, and release year be entered, and that the release 
 year be no earlier than 1965. 
 
-George Chadderdon, 8/19/2021
+George Chadderdon, 8/20/2021
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -75,16 +75,16 @@ George Chadderdon, 8/19/2021
         else
         {
             // Open the database.
-            $con = prdb_open_db();
+            $conn = prdb_open_db();
             
             // Read out the whole database.
             $the_artist = $_POST['artist'];
             $the_album = $_POST['album'];
             $the_rel_yr = $_POST['rel_yr'];
             $the_url = $_POST['alb_info_url'];
-            $result = prdb_submit_sql_query($con, "SELECT * FROM ProgRockAlbums 
-                                                   WHERE Artist='$the_artist'
-                                                   AND Album='$the_album'");
+            $result = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums 
+                                                    WHERE Artist='$the_artist'
+                                                    AND Album='$the_album'");
             
             // If we have a match, tell the user.
             if (mysqli_num_rows($result) > 0)
@@ -96,19 +96,19 @@ George Chadderdon, 8/19/2021
                 // Try to insert the new record.
                 $sql = "INSERT INTO ProgRockAlbums (Artist,Album,ReleaseDate,AlbumInfoURL) 
                         VALUES ('$the_artist','$the_album','$the_rel_yr','$the_url')";
-                $result = prdb_submit_sql_query($con, $sql);
+                $result = prdb_submit_sql_query($conn, $sql);
                 
                 // Crash out if we have an error.
                 if (!$result)
                 {
-                    die('SQL ERROR: ' . mysqli_error($con));
+                    die('SQL ERROR: ' . mysqli_error($conn));
                 }
                 else
                 {
                     echo "Your suggestion has been added!<p>";
                     
                     // Read out the whole database.
-                    $alb_data = prdb_submit_sql_query($con, "SELECT * FROM ProgRockAlbums");
+                    $alb_data = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums");
                     
                     // Show the database in a table.
                     prdb_full_disp_album_data($alb_data);                   
@@ -116,12 +116,12 @@ George Chadderdon, 8/19/2021
             }           
             
             // Close the database.
-            prdb_close_db($con);                        
+            prdb_close_db($conn);                        
         }
     }
 ?>
     
-    <p>Last Updated: 8/19/2021</p>
+    <p>Last Updated: 8/20/2021</p>
 
 </body>
 
