@@ -13,7 +13,7 @@ George Chadderdon, 8/20/2021
         // MySQL database connection parameters
         $hostname   = "localhost";     // name of host MySQL is set up on (possibly "localhost")
         $dbuser     = "root";          // user name to use for the connection (possibly "root")
-        $dbpassword = "asdfjU85!b08bxeltlP";  // password to use with the connection user
+        $dbpassword = "yyyy";          // password to use with the connection user
         $dbname     = "prog_rock_db";  // actual name of the Prog Rock database
         
         // Try to connect with the MYSQL database.
