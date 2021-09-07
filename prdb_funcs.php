@@ -3,7 +3,7 @@ prdb_funcs.php
 
 PHP functions used by the Prog Rock Database Project. 
 
-George Chadderdon, 8/20/2021
+George Chadderdon, 9/7/2021
 -->
 
 <?php 
@@ -11,10 +11,10 @@ George Chadderdon, 8/20/2021
     function prdb_open_db()
     {
         // MySQL database connection parameters
-        $hostname   = "localhost";     // name of host MySQL is set up on (possibly "localhost")
-        $dbuser     = "root";          // user name to use for the connection (possibly "root")
-        $dbpassword = "asdfjU85!b08bxeltlP";  // password to use with the connection user
-        $dbname     = "prog_rock_db";  // actual name of the Prog Rock database
+        $hostname   = getenv("PRDB_MYSQL_HOSTNAME");     // name of host MySQL is set up on (possibly "localhost")
+        $dbuser     = getenv("PRDB_MYSQL_USER");         // user name to use for the connection (possibly "root")
+        $dbpassword = getenv("PRDB_MYSQL_PASSWORD");     // password to use with the connection user
+        $dbname     = getenv("PRDB_MYSQL_DB");           // actual name of the Prog Rock database
         
         // Try to connect with the MYSQL database.
         $conn = mysqli_connect($hostname, $dbuser, $dbpassword, $dbname);
