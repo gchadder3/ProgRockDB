@@ -39,7 +39,7 @@ George Chadderdon, 8/20/2021
 //         VALUES ('Jethro Tull','Aqualung','1971',
 //      'http://en.wikipedia.org/wiki/Aqualung_(Jethro_Tull_album)')";
 //    $result = prdb_submit_sql_query($conn, $sql);
-
+    
     // Read out the whole database.
     $alb_data = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums");
     
