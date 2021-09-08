@@ -5,7 +5,7 @@ Page displaying the entirety of the albums table for Prog Rock Database
 Project.  The order of presentation is in alphabetical order of Artist, 
 then release year of the album.
 
-George Chadderdon, 8/20/2021
+George Chadderdon, 9/7/2021
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -42,7 +42,7 @@ George Chadderdon, 8/20/2021
 //    $result = prdb_submit_sql_query($conn, $sql);
 
     // Read out the whole database.
-    $alb_data = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums 
+    $alb_data = prdb_submit_sql_query($conn, "SELECT * FROM progrockalbums 
                                              ORDER BY Artist, ReleaseDate");
                                              
     // Show the database in a table.
@@ -52,7 +52,7 @@ George Chadderdon, 8/20/2021
     prdb_close_db($conn);
 ?>
 
-   <p>Last Updated: 8/20/2021</p>
+   <p>Last Updated: 9/7/2021</p>
 
 </body>
 

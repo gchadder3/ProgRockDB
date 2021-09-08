@@ -16,6 +16,12 @@ George Chadderdon, 9/7/2021
         $dbpassword = getenv("PRDB_MYSQL_PASSWORD");     // password to use with the connection user
         $dbname     = getenv("PRDB_MYSQL_DB");           // actual name of the Prog Rock database
         
+        // Debugging info for DB connection
+//        echo "PRDB_MYSQL_HOSTNAME = ".$hostname."<br>";
+//        echo "PRDB_MYSQL_USER = ".$dbuser."<br>";
+//        echo "PRDB_MYSQL_PASSWORD = ".$dbpassword."<br>";
+//        echo "PRDB_MYSQL_DB = ".$dbname."<br>";
+        
         // Try to connect with the MYSQL database.
         $conn = mysqli_connect($hostname, $dbuser, $dbpassword, $dbname);
                               

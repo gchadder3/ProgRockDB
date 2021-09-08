@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+    app:
+        image: progrockdb
+        ports:
+            - 5000:80
+        environment:
+            PRDB_MYSQL_HOSTNAME: mysql
+            PRDB_MYSQL_USER: root
+            PRDB_MYSQL_PASSWORD: secret
+            PRDB_MYSQL_DB: prog_rock_db
+            
+    mysql:
+        image: mysql:5.7
+        volumes:
+            - progrockdb-mysql-data:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_DATABASE: prog_rock_db
+      
+volumes:
+    progrockdb-mysql-data:

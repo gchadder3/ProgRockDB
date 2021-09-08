@@ -6,7 +6,7 @@ Database. The form does validation checking, requiring that the
 arist, album, and release year be entered, and that the release 
 year be no earlier than 1965. 
 
-George Chadderdon, 8/20/2021
+George Chadderdon, 9/7/2021
 -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -82,7 +82,7 @@ George Chadderdon, 8/20/2021
             $the_album = $_POST['album'];
             $the_rel_yr = $_POST['rel_yr'];
             $the_url = $_POST['alb_info_url'];
-            $result = prdb_submit_sql_query($conn, "SELECT * FROM ProgRockAlbums 
+            $result = prdb_submit_sql_query($conn, "SELECT * FROM progrockalbums 
                                                     WHERE Artist='$the_artist'
                                                     AND Album='$the_album'");
             
@@ -94,7 +94,7 @@ George Chadderdon, 8/20/2021
             else
             {
                 // Try to insert the new record.
-                $sql = "INSERT INTO ProgRockAlbums (Artist,Album,ReleaseDate,AlbumInfoURL) 
+                $sql = "INSERT INTO progrockalbums (Artist,Album,ReleaseDate,AlbumInfoURL) 
                         VALUES ('$the_artist','$the_album','$the_rel_yr','$the_url')";
                 $result = prdb_submit_sql_query($conn, $sql);
                 
@@ -121,7 +121,7 @@ George Chadderdon, 8/20/2021
     }
 ?>
     
-    <p>Last Updated: 8/20/2021</p>
+    <p>Last Updated: 9/7/2021</p>
 
 </body>
 
