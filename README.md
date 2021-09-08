@@ -5,7 +5,7 @@ for some freelance work for generating a PHP and MySQL based website for a clien
 project, there is a MySQL database with a single table for prog rock albums, a portal page 
 (`index.html`), a PHP page for showing the database contents in `Album_ID` order (`prdb_disp1.php`), 
 another PHP page for showing the contents in a more natural data ordering (`prdb_disp2.php`), and 
-a PHP form for entering new albums in the database (`prdb_addnewalbumform.php`).
+a PHP form page for entering new albums in the database (`prdb_addnewalbumform.php`).
 
 It has been reworked here (in 2021) to be installable either with Docker or an a local system 
 that has a PHP and Apache server set up.
@@ -39,13 +39,25 @@ container database to install the missing data.
 Directions to install without Docker on a local machine
 
 * You'll need to have Apache, PHP, and MySQL properly installed on your local machine and 
-be able to add new databases to it.
-* Move into the directory (`htdocs` for example) visible to your browser, and clone the repo: 
+be able to add new databases to MySQL.
+* Move into the directory (`C:\Apache24\htdocs`, for example, on my machine) which is 
+visible to your browser when you are running your web server, and clone the repo: 
 `git clone https://github.com/gchadder3/ProgRockDB.git` .
-* Install the initial database by sourcing `prog_rock_db.sql` into your MySQL server.  This 
-will create a new database in your MySQL database called `prog_rock_db`.
-* Edit the database connection parameters on Lines 14-16 of `prdb_funcs.php` to match 
-where you put the database in MySQL.  Now you should be ready to use the database.
+* Install the initial database by sourcing `prog_rock_db.sql` into your MySQL server.  
+(For me, this consists of logging into MySQL via the MySQL Command Line Client in Windows 
+and running `source C:/Apache24/htdocs/ProgRockDB/prog_rock_db.sql` in the shell.  If you 
+are on a Linux install, you can probably do 
+`mysql -uroot -p[your root password] < prog_rock_db.sql` from the command-line in the 
+repo directory without entering the MySQL shell.)  This 
+will create a new database called `prog_rock_db` with a table `progrockalbums` 
+containing the initial album data.
+* Edit the database connection parameters on Lines 14-17 of `prdb_funcs.php` to match 
+where you put the database in MySQL.  (For a simplest solution, replace the `getenv()` 
+calls with the strings with your DB access info.  Otherwise, you need to set up 
+environment variables.  See `startserver.bat` for an example of how to do that in 
+Windows.)  Now you should be ready to use the database.
+* Make sure your (e.g. Apache) web server is up and running.  (For example on my setup, 
+I navigate to `C:\Apache24\bin` in a command shell and run `httpd`.)
 * Navigate in your browser to the portal site at `localhost/ProgRockDB/`.
-* The portal page should appear, and you to should be able to use the database, viewing it
+* The portal page should appear, and you should be able to use the database, viewing it
 and adding new albums.
