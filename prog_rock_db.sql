@@ -3,7 +3,7 @@
 -- From MySQL Command Line Client:
 -- source C:/Apache24/htdocs/ProgRockDB/prog_rock_db.sql;
 
-CREATE DATABASE prog_rock_db;
+CREATE DATABASE IF NOT EXISTS prog_rock_db;
 USE prog_rock_db;
 
 CREATE TABLE progrockalbums (
